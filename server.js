@@ -18,6 +18,9 @@ app.use(bodyParser.json()); // parse application/json
 app.use(bodyParser.json({ type: 'application/vnd.api+json' })); // parse application/vnd.api+json as json
 app.use(methodOverride('X-HTTP-Method-Override')); // override with the X-HTTP-Method-Override header in the request
 
+// Express static bower ----------------------------------------------
+	app.use(express.static(__dirname + '/public'));
+	app.use('/bower_components',  express.static(__dirname + '/bower_components'));
 
 // routes ======================================================================
 require('./app/routes.js')(app);
