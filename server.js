@@ -21,10 +21,11 @@ app.use(methodOverride('X-HTTP-Method-Override')); // override with the X-HTTP-M
 // Express static bower ----------------------------------------------
 	app.use(express.static(__dirname + '/public'));
 	app.use('/bower_components',  express.static(__dirname + '/bower_components'));
+	app.use('/dist/css/', express.static(__dirname + '/dlist/css/'));
+	app.use('/dist/js/', express.static(__dirname + '/dlist/js/'));
 
 // routes ======================================================================
 require('./app/routes.js')(app);
 
 // listen (start app with node server.js) ======================================
 app.listen(port);
-console.log("App listening on port " + port);
